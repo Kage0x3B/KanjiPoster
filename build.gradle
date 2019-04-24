@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'io.franzbecker.gradle-lombok' version '2.0'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+}
+
+group 'de.syscy'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile 'org.xhtmlrenderer:flying-saucer-core:9.1.16'
+    //compile 'org.xhtmlrenderer:flying-saucer-pdf:9.1.16'
+    //compile 'org.xhtmlrenderer:flying-saucer-pdf-openpdf:9.1.16'
+    compile 'org.xhtmlrenderer:flying-saucer-pdf-itext5:9.1.16'
+    compile 'org.xhtmlrenderer:flying-saucer-swt:9.1.16'
+    compile 'org.jooq:joor-java-8:0.9.7'
+    compile 'org.swinglabs.swingx:swingx-all:1.6.5-1'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.syscy.kanjipos.gui.KanjiPosGui'
+    }
+}
