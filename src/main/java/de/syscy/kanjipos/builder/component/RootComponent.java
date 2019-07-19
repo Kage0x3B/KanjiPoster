@@ -1,5 +1,6 @@
 package de.syscy.kanjipos.builder.component;
 
+import de.syscy.kanjipos.KanjiPos;
 import de.syscy.kanjipos.builder.PlaceholderUtil;
 import de.syscy.kanjipos.util.FontUtil;
 import lombok.RequiredArgsConstructor;
@@ -54,6 +55,9 @@ public class RootComponent extends HtmlComponent {
 
 			String[] fontFamilyName = FontUtil.getFontFamilyNames(fontUri);
 			properties.put("fontUri", fontFile.toURI().toString());
+
+			KanjiPos.LOGGER.info("Uri: " + fontFile.toURI().toString());
+			KanjiPos.LOGGER.info("fontFamily: " + (fontFamilyName.length > 0 ? fontFamilyName[0] : "null"));
 
 			if(fontFamilyName.length > 0) {
 				properties.put("fontFamily", fontFamilyName[0]);

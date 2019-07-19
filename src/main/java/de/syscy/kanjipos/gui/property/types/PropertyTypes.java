@@ -3,6 +3,7 @@ package de.syscy.kanjipos.gui.property.types;
 import de.syscy.kanjipos.gui.property.PropertiesEditorConfig;
 import org.jdesktop.swingx.treetable.MutableTreeTableNode;
 
+import java.io.File;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -156,6 +157,41 @@ public final class PropertyTypes {
 		 */
 		public FloatType(String name, Float defaultValue) {
 			super(Float.class, name, defaultValue);
+		}
+	}
+
+	public static class FileType extends AbstractType<File> {
+		private final File defaultValue;
+
+		public FileType(String name, File defaultValue) {
+			super(File.class, name);
+			this.defaultValue = defaultValue;
+		}
+
+		public FileType(File defaultValue) {
+			super(File.class);
+			this.defaultValue = defaultValue;
+		}
+
+		@Override
+		public final boolean isCollection() {
+			return false;
+		}
+
+		@Override
+		public File getDefaultValue() {
+			return defaultValue;
+		}
+
+		@Override
+		public PropertyNode fromObject(String key, Object object, PropertiesEditorConfig config) {
+			return new PropertyNode(key, this, object);
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public File toObject(PropertyNode propertyNode) {
+			return (File) propertyNode.getUserObject();
 		}
 	}
 

@@ -1,5 +1,7 @@
 package de.syscy.kanjipos.data;
 
+import de.syscy.kanjipos.KanjiPos;
+
 public class KanjiComparator implements IEntryComparator {
 	@Override
 	public int compare(PosterEntry o1, PosterEntry o2) {
@@ -23,8 +25,24 @@ public class KanjiComparator implements IEntryComparator {
 	}
 
 	private int compareNumberStrings(String string1, String string2) {
-		int number1 = Integer.parseInt(string1);
-		int number2 = Integer.parseInt(string2);
+		int number1;
+		int number2;
+
+		try {
+			number1 = Integer.parseInt(string1.trim());
+		} catch(NumberFormatException ex) {
+			KanjiPos.LOGGER.warning("Invalid number string: " + string1.trim());
+
+			throw ex;
+		}
+
+		try {
+			number2 = Integer.parseInt(string2.trim());
+		} catch(NumberFormatException ex) {
+			KanjiPos.LOGGER.warning("Invalid number string: " + string2.trim());
+
+			throw ex;
+		}
 
 		return Integer.compare(number1, number2);
 	}

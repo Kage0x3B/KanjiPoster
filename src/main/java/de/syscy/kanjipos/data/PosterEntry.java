@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PosterEntry {
+public class PosterEntry implements Comparable<PosterEntry> {
 	public static final PosterEntry EMPTY = new PosterEntry() {
 		@Override
 		public String get(String key) {
@@ -25,5 +25,10 @@ public class PosterEntry {
 
 	public boolean has(String key) {
 		return data.containsKey(key);
+	}
+
+	@Override
+	public int compareTo(PosterEntry o) {
+		return 0;
 	}
 }

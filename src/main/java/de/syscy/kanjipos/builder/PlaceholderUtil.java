@@ -20,10 +20,24 @@ public class PlaceholderUtil {
 
 			int markerIndex = stringBuilder.indexOf(propertyReplaceMarker);
 
-			if(markerIndex != -1) {
+			while(markerIndex != -1) {
 				String propertyValue = valueFunction.apply(propertyName);
 
+				if(propertyName.contains("#")) {
+					StringBuilder modifiedPropertyValue = new StringBuilder();
+
+					if(propertyName.endsWith("#split")) {
+						for(char c : propertyValue.toCharArray()) {
+							modifiedPropertyValue.append(c).append("<br>");
+						}
+					}
+
+					propertyValue = modifiedPropertyValue.toString();
+				}
+
 				stringBuilder.replace(markerIndex, markerIndex + propertyReplaceMarker.length(), propertyValue);
+
+				markerIndex = stringBuilder.indexOf(propertyReplaceMarker);
 			}
 		}
 	}

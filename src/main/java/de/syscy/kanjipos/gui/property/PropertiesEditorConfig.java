@@ -4,6 +4,7 @@ import de.syscy.kanjipos.gui.property.types.PropertyNode;
 import de.syscy.kanjipos.gui.property.types.PropertyType;
 import de.syscy.kanjipos.gui.property.types.PropertyTypes;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -86,6 +87,7 @@ public class PropertiesEditorConfig {
 		builder.addType(new PropertyTypes.IntegerType("Integer", 0));
 		builder.addType(new PropertyTypes.DoubleType("Double", 0.));
 		builder.addType(new PropertyTypes.FloatType("Float", 0f));
+		builder.addType(new PropertyTypes.FileType("File", new File("")));
 
 		return builder.build();
 	}

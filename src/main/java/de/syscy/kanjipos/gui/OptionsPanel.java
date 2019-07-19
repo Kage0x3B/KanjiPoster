@@ -113,6 +113,10 @@ public class OptionsPanel extends JPanel {
 
 			if(object instanceof Map) {
 				convertProperties(properties, (Map<String, Object>) object);
+			} else if(object instanceof File) {
+				File file = (File) object;
+
+				properties.setProperty(toProp(key), file.getName());
 			} else {
 				properties.setProperty(toProp(key), String.valueOf(object));
 			}
@@ -144,6 +148,8 @@ public class OptionsPanel extends JPanel {
 				newValue = Long.parseLong(value);
 			} else if(previousType == boolean.class) {
 				newValue = Boolean.parseBoolean(value);
+			} else if(previousType == File.class) {
+				newValue = new File(value);
 			} else {
 				newValue = value;
 			}
