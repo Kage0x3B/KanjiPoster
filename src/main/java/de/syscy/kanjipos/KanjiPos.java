@@ -6,6 +6,10 @@ import de.syscy.kanjipos.builder.PosterHtmlBuilder;
 import de.syscy.kanjipos.builder.SimpleComponentBuilder;
 import de.syscy.kanjipos.builder.TemplateComponentBuilder;
 import de.syscy.kanjipos.data.*;
+import de.syscy.kanjipos.data.comparator.DescriptorComparator;
+import de.syscy.kanjipos.data.comparator.DummyComparator;
+import de.syscy.kanjipos.data.comparator.KanjiComparator;
+import de.syscy.kanjipos.data.comparator.ReadingComparator;
 import de.syscy.kanjipos.data.xml.XMLDataSource;
 import de.syscy.kanjipos.util.FontUtil;
 import org.w3c.dom.Document;
@@ -29,11 +33,14 @@ public class KanjiPos {
 		alternativesRegistry = new AlternativesRegistry();
 
 		alternativesRegistry.putAlternative(IDataSource.class, XMLDataSource.class);
+
 		alternativesRegistry.putAlternative(IComponentBuilder.class, SimpleComponentBuilder.class);
 		alternativesRegistry.putAlternative(IComponentBuilder.class, TemplateComponentBuilder.class);
+
 		alternativesRegistry.putAlternative(IEntryComparator.class, KanjiComparator.class);
 		alternativesRegistry.putAlternative(IEntryComparator.class, DummyComparator.class);
 		alternativesRegistry.putAlternative(IEntryComparator.class, DescriptorComparator.class);
+		alternativesRegistry.putAlternative(IEntryComparator.class, ReadingComparator.class);
 	}
 
 	public void createPoster(Properties properties) throws IOException, DocumentException {

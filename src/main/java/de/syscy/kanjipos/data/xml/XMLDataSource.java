@@ -9,9 +9,8 @@ import org.w3c.dom.NodeList;
 import org.xhtmlrenderer.resource.XMLResource;
 import org.xml.sax.InputSource;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class XMLDataSource implements IDataSource {
 	private final @Getter IPosterData data;
@@ -19,8 +18,8 @@ public class XMLDataSource implements IDataSource {
 	public XMLDataSource(File xmlFile) {
 		IPosterData data;
 
-		try(FileReader fileReader = new FileReader(xmlFile)) {
-			Document document = XMLResource.load(new InputSource(fileReader)).getDocument();
+		try(InputStreamReader reader = new InputStreamReader(new FileInputStream(xmlFile), StandardCharsets.UTF_8)) {
+			Document document = XMLResource.load(new InputSource(reader)).getDocument();
 
 			data = new SimplePosterData();
 

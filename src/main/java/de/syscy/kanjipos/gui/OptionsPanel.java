@@ -210,7 +210,7 @@ public class OptionsPanel extends JPanel {
 		//Grid
 		addProperty("kanjiTemplate", "Kanji Template");
 		addProperty("entriesPerRow", "Felder pro Zeile");
-		addProperty("fillerEntries", "Leerstellenfüller");
+		addProperty("fillerEntries", "Leerstellenf\u00fcller");
 
 		//PDF Settings
 		addProperty("dotsPerPoint", "Dots Per Point");
@@ -218,12 +218,12 @@ public class OptionsPanel extends JPanel {
 
 		//CSS
 		addProperty("cssFile", "CSS Datei");
-		addProperty("pageSize", "Seitengröße");
+		addProperty("pageSize", "Seitengr\u00f6\u00dfe");
 		addProperty("pageMargin", "Randabstand");
 		addProperty("font", "Schriftdatei");
-		addProperty("baseFontSize", "Schriftgröße");
-		addProperty("lineHeight", "Linienhöhe");
-		addProperty("kanjiFontSize", "Kanji Größe");
+		addProperty("baseFontSize", "Schriftgr\u00f6\u00dfe");
+		addProperty("lineHeight", "Linienh\u00f6he");
+		addProperty("kanjiFontSize", "Kanji Gr\u00f6\u00dfe");
 		addProperty("textColor", "Text Farbe");
 		addProperty("kanjiColor", "Kanji Farbe");
 		addProperty("indexColor", "Index Farbe");

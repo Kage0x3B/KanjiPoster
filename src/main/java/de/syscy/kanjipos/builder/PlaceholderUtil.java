@@ -23,12 +23,12 @@ public class PlaceholderUtil {
 			while(markerIndex != -1) {
 				String propertyValue = valueFunction.apply(propertyName);
 
-				if(propertyName.contains("#")) {
+				if(propertyName.contains("_")) {
 					StringBuilder modifiedPropertyValue = new StringBuilder();
 
-					if(propertyName.endsWith("#split")) {
+					if(propertyName.endsWith("_split")) {
 						for(char c : propertyValue.toCharArray()) {
-							modifiedPropertyValue.append(c).append("<br>");
+							modifiedPropertyValue.append(c).append("<br></br>");
 						}
 					}
 

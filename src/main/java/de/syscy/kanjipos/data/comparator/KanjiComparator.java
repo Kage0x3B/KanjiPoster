@@ -1,6 +1,8 @@
-package de.syscy.kanjipos.data;
+package de.syscy.kanjipos.data.comparator;
 
 import de.syscy.kanjipos.KanjiPos;
+import de.syscy.kanjipos.data.IEntryComparator;
+import de.syscy.kanjipos.data.PosterEntry;
 
 public class KanjiComparator implements IEntryComparator {
 	@Override

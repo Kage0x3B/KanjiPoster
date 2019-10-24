@@ -1,4 +1,7 @@
-package de.syscy.kanjipos.data;
+package de.syscy.kanjipos.data.comparator;
+
+import de.syscy.kanjipos.data.IEntryComparator;
+import de.syscy.kanjipos.data.PosterEntry;
 
 public class DummyComparator implements IEntryComparator {
 	@Override
